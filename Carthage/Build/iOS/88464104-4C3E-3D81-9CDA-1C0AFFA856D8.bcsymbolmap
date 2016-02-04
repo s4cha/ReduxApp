@@ -1,0 +1,42 @@
+BCSymbolMap Version: 1.0
+globalinit_33_523701B99E2DD90E1E515F7DDDF268AD_func0
+get_field_types_Arrow
+globalinit_33_523701B99E2DD90E1E515F7DDDF268AD_token0
+_Tv5ArrowP33_523701B99E2DD90E1E515F7DDDF268AD12dateFormaterCSo15NSDateFormatter
+L_selector_data(setDateFormat:)
+L_selector(setDateFormat:)
+_TMLPSs9AnyObject_
+_PROTOCOL__TtPSs9AnyObject_
+l_OBJC_LABEL_PROTOCOL_$__TtPSs9AnyObject_
+l_OBJC_PROTOCOL_REFERENCE_$__TtPSs9AnyObject_
+L_selector_data(dateFromString:)
+L_selector(dateFromString:)
+_METACLASS_DATA__TtC5Arrow5Arrow
+_DATA__TtC5Arrow5Arrow
+_TMfC5Arrow5Arrow
+_swift_FORCE_LOAD_$_swiftUIKit_$_Arrow
+_swift_FORCE_LOAD_$_swiftCoreImage_$_Arrow
+_swift_FORCE_LOAD_$_swiftDarwin_$_Arrow
+_swift_FORCE_LOAD_$_swiftCoreGraphics_$_Arrow
+_swift_FORCE_LOAD_$_swiftDispatch_$_Arrow
+_swift_FORCE_LOAD_$_swiftObjectiveC_$_Arrow
+_swift_FORCE_LOAD_$_swiftFoundation_$_Arrow
+field_type_vector_Arrow
+L_selector_data(allocWithZone:)
+L_selector(allocWithZone:)
+L_selector_data(init)
+L_selector(init)
+objc_classes
+Apple Swift version 2.1.1 (swiftlang-700.1.101.15 clang-700.1.81)
+-emit-bc -primary-file /Users/sacha/Desktop/TestRedux/Carthage/Checkouts/Arrow/Arrow.swift -target armv7-apple-ios8.0 -enable-objc-interop -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk -I /Users/sacha/Library/Developer/Xcode/DerivedData/ArrowExample-ehjrymmxwxbkkcdryolsanviarcx/Build/Products/Release-iphoneos -F /Users/sacha/Library/Developer/Xcode/DerivedData/ArrowExample-ehjrymmxwxbkkcdryolsanviarcx/Build/Products/Release-iphoneos -g -import-underlying-module -module-cache-path /Users/sacha/Library/Developer/Xcode/DerivedData/ModuleCache -serialize-debugging-options -Xcc -I/Users/sacha/Library/Developer/Xcode/DerivedData/ArrowExample-ehjrymmxwxbkkcdryolsanviarcx/Build/Intermediates/ArrowExample.build/Release-iphoneos/Arrow.build/swift-overrides.hmap -Xcc -iquote -Xcc /Users/sacha/Library/Developer/Xcode/DerivedData/ArrowExample-ehjrymmxwxbkkcdryolsanviarcx/Build/Intermediates/ArrowExample.build/Release-iphoneos/Arrow.build/Arrow-generated-files.hmap -Xcc -I/Users/sacha/Library/Developer/Xcode/DerivedData/ArrowExample-ehjrymmxwxbkkcdryolsanviarcx/Build/Intermediates/ArrowExample.build/Release-iphoneos/Arrow.build/Arrow-own-target-headers.hmap -Xcc -I/Users/sacha/Library/Developer/Xcode/DerivedData/ArrowExample-ehjrymmxwxbkkcdryolsanviarcx/Build/Intermediates/ArrowExample.build/Release-iphoneos/Arrow.build/Arrow-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /Users/sacha/Library/Developer/Xcode/DerivedData/ArrowExample-ehjrymmxwxbkkcdryolsanviarcx/Build/Intermediates/ArrowExample.build/all-product-headers.yaml -Xcc -iquote -Xcc /Users/sacha/Library/Developer/Xcode/DerivedData/ArrowExample-ehjrymmxwxbkkcdryolsanviarcx/Build/Intermediates/ArrowExample.build/Release-iphoneos/Arrow.build/Arrow-project-headers.hmap -Xcc -I/Users/sacha/Library/Developer/Xcode/DerivedData/ArrowExample-ehjrymmxwxbkkcdryolsanviarcx/Build/Products/Release-iphoneos/include -Xcc -I/Users/sacha/Library/Developer/Xcode/DerivedData/ArrowExample-ehjrymmxwxbkkcdryolsanviarcx/Build/Intermediates/ArrowExample.build/Release-iphoneos/Arrow.build/DerivedSources/armv7 -Xcc -I/Users/sacha/Library/Developer/Xcode/DerivedData/ArrowExample-ehjrymmxwxbkkcdryolsanviarcx/Build/Intermediates/ArrowExample.build/Release-iphoneos/Arrow.build/DerivedSources -Xcc -ivfsoverlay -Xcc /Users/sacha/Library/Developer/Xcode/DerivedData/ArrowExample-ehjrymmxwxbkkcdryolsanviarcx/Build/Intermediates/ArrowExample.build/Release-iphoneos/Arrow.build/unextended-module-overlay.yaml -Xcc -working-directory/Users/sacha/Desktop/TestRedux/Carthage/Checkouts/Arrow/ArrowExample -emit-module-doc-path /Users/sacha/Library/Developer/Xcode/DerivedData/ArrowExample-ehjrymmxwxbkkcdryolsanviarcx/Build/Intermediates/ArrowExample.build/Release-iphoneos/Arrow.build/Objects-normal/armv7/Arrow~partial.swiftdoc -O -parse-as-library -module-name Arrow -emit-module-path /Users/sacha/Library/Developer/Xcode/DerivedData/ArrowExample-ehjrymmxwxbkkcdryolsanviarcx/Build/Intermediates/ArrowExample.build/Release-iphoneos/Arrow.build/Objects-normal/armv7/Arrow~partial.swiftmodule -serialize-diagnostics-path /Users/sacha/Library/Developer/Xcode/DerivedData/ArrowExample-ehjrymmxwxbkkcdryolsanviarcx/Build/Intermediates/ArrowExample.build/Release-iphoneos/Arrow.build/Objects-normal/armv7/Arrow.dia -emit-dependencies-path /Users/sacha/Library/Developer/Xcode/DerivedData/ArrowExample-ehjrymmxwxbkkcdryolsanviarcx/Build/Intermediates/ArrowExample.build/Release-iphoneos/Arrow.build/Objects-normal/armv7/Arrow.d -o /Users/sacha/Library/Developer/Xcode/DerivedData/ArrowExample-ehjrymmxwxbkkcdryolsanviarcx/Build/Intermediates/ArrowExample.build/Release-iphoneos/Arrow.build/Objects-normal/armv7/Arrow.bc -resource-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift -private-discriminator _523701B99E2DD90E1E515F7DDDF268AD
+init
+Arrow.swift
+/Users/sacha/Desktop/TestRedux/Carthage/Checkouts/Arrow
+<--
+<==
+deinit
+_TF5ArrowauP33_523701B99E2DD90E1E515F7DDDF268AD12dateFormaterCSo15NSDateFormatter
+setDateFormat
+Apple LLVM version 7.0.2 (clang-700.1.81)
+/Users/sacha/Library/Developer/Xcode/DerivedData/ArrowExample-ehjrymmxwxbkkcdryolsanviarcx/Build/Intermediates/ArrowExample.build/Release-iphoneos/Arrow.build/DerivedSources/Arrow_vers.c
+/Users/sacha/Desktop/TestRedux/Carthage/Checkouts/Arrow/ArrowExample
