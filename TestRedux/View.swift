@@ -8,7 +8,7 @@
 
 import UIKit
 
-class View:UIView {
+class UsersView:UIView {
     
     let tableView = UITableView(frame: UIScreen.mainScreen().bounds, style: .Plain)
     let button = UIButton()

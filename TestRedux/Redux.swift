@@ -29,25 +29,8 @@ protocol Reducer {
 }
 
 protocol StateObserver {
-
     func newState(state:State)
-//    func dispatch(actionCreator:ActionCreator)
 }
-
-
-//func dispatch(actionCreator:ActionCreator) {
-//    actionCreator(dispatch: store.dispatch)
-//}
-
-
-
-//extension Store {
-//
-//    mutating func dispatch(action:Action) {
-//        state = reducer.handleAction(state, action: action)
-//////        refreshState()
-//    }
-//}
 
 class DefaultStore:Store {
     var state:State
@@ -62,7 +45,6 @@ class DefaultStore:Store {
     func dispatch(action: Action) {
         state = reducer.handleAction(state, action: action)
         pushStateToStateObserver()
-        print(state)
     }
     
     func dispatch(actionCreator:ActionCreator) {
@@ -88,7 +70,6 @@ class DefaultStore:Store {
 }
 
 typealias Dispatch = (Action) -> Void
-
 
 //Helpers
 

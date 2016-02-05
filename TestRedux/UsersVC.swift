@@ -1,19 +1,17 @@
 //
-//  ViewController.swift
+//  UsersVC.swift
 //  TestRedux
 //
 //  Created by Sacha Durand Saint Omer on 29/01/16.
 //  Copyright © 2016 s4cha. All rights reserved.
 //
 
-
 import UIKit
 
-
-class ViewController: UIViewController, StateObserver {
+class UsersVC:UIViewController, StateObserver {
     
     var state:MyState!
-    let v = View()
+    let v = UsersView()
     override func loadView() { view = v }
     
     override func viewWillAppear(animated: Bool) {
@@ -29,7 +27,7 @@ class ViewController: UIViewController, StateObserver {
     }
     
     func tap() {
-        dispatch(LoadUsersActionCreator())
+        dispatch(FetchUsers())
     }
     
     func newState(newState: State) {
@@ -47,16 +45,15 @@ class ViewController: UIViewController, StateObserver {
     }
     
     func buttonTextforState(state:MyState) -> String {
-        
-        if state.isLoadingUsers {
+        if state.users == nil {
             return "Loading Users..."
         } else if state.failedLoadingUsers {
             return "Failed loading users"
-        } else if state.users.count == 0 {
+        } else if state.users!.count == 0 {
            return "No users :("
         } else {
             var t = ""
-            for u in state.users {
+            for u in state.users! {
                 t += "\(u.name) "
             }
             return t
@@ -64,15 +61,16 @@ class ViewController: UIViewController, StateObserver {
     }
 }
 
-extension ViewController:UITableViewDataSource {
+extension UsersVC:UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return state.users.count
+        guard let users = state.users else { return 0 }
+        return users.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let c = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
-        let u = state.users[indexPath.row]
+        let u = state.users![indexPath.row]
         c.textLabel?.text = u.name
         c.textLabel?.backgroundColor = .clearColor()
         c.contentView.backgroundColor = u.isLiked  ? .yellowColor() : .whiteColor()
@@ -80,13 +78,19 @@ extension ViewController:UITableViewDataSource {
     }
 }
 
-extension ViewController:UITableViewDelegate {
+extension UsersVC:UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let u = state.users[indexPath.row]
+        let u = state.users![indexPath.row]
         if !u.isLiked {
-            dispatch(LikeUserActionCreator(u))
+            dispatch(LikeUser(u))
+        } else {
+            dispatch(TappedUser(user: u))
         }
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
+}
+
+struct TappedUser:Action {
+    let user:User
 }
