@@ -20,9 +20,9 @@ class Navigation:NSObject,StateObserver, UINavigationControllerDelegate {
         subscribe(self)
     }
     
-    private let navVC = UINavigationController()
+    fileprivate let navVC = UINavigationController()
     
-    func newState(newState: State) {
+    func newState(_ newState: State) {
         let state = newState as! MyState
         if previousNavigationStack.count != state.navigationStack.count {
             if previousNavigationStack.isEmpty {
@@ -42,7 +42,7 @@ class Navigation:NSObject,StateObserver, UINavigationControllerDelegate {
         previousNavigationStack = state.navigationStack
     }
     
-    func controllersForNavigationStack(navigationStack:[Any]) -> [UIViewController] {
+    func controllersForNavigationStack(_ navigationStack:[Any]) -> [UIViewController] {
         var a = [UIViewController]()
         for vcName in navigationStack {
             if let vc = controllerForControllerId(vcName) {
@@ -52,7 +52,7 @@ class Navigation:NSObject,StateObserver, UINavigationControllerDelegate {
         return a
     }
     
-    func controllerForControllerId(vcId:Any) -> UIViewController? {
+    func controllerForControllerId(_ vcId:Any) -> UIViewController? {
         switch vcId {
         case let s as String where s == "Users" :
             return UsersVC()
@@ -67,9 +67,9 @@ class Navigation:NSObject,StateObserver, UINavigationControllerDelegate {
     var previousViewControllers = [UIViewController]()
     
     // Make sure Back action syncs the navigation State.
-    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         switch operation {
-        case .Pop:
+        case .pop:
             dispatch(NavigationBackAction())
         default: ()
         }

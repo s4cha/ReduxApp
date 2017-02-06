@@ -14,14 +14,14 @@ class UsersVC:UIViewController, StateObserver {
     let v = UsersView()
     override func loadView() { view = v }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         subscribe(self)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        v.button.addTarget(self, action: "tap", forControlEvents: .TouchUpInside)
+        v.button.addTarget(self, action: #selector(UsersVC.tap), for: .touchUpInside)
         v.tableView.dataSource = self
         v.tableView.delegate = self
     }
@@ -30,21 +30,21 @@ class UsersVC:UIViewController, StateObserver {
         dispatch(FetchUsers())
     }
     
-    func newState(newState: State) {
+    func newState(_ newState: State) {
         state = newState as! MyState
         
-        v.button.setTitle(buttonTextforState(state), forState: .Normal)
+        v.button.setTitle(buttonTextforState(state), for: UIControlState())
         v.tableView.reloadData()
         
         
         if state.likingUserFailed {
-            let alert = UIAlertController(title: "Failed", message: "try again", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler:nil))
-            presentViewController(alert, animated: true, completion: nil)
+            let alert = UIAlertController(title: "Failed", message: "try again", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler:nil))
+            present(alert, animated: true, completion: nil)
         }
     }
     
-    func buttonTextforState(state:MyState) -> String {
+    func buttonTextforState(_ state:MyState) -> String {
         if state.users == nil {
             return "Loading Users..."
         } else if state.failedLoadingUsers {
@@ -63,31 +63,31 @@ class UsersVC:UIViewController, StateObserver {
 
 extension UsersVC:UITableViewDataSource {
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let users = state.users else { return 0 }
         return users.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let c = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let c = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let u = state.users![indexPath.row]
         c.textLabel?.text = u.name
-        c.textLabel?.backgroundColor = .clearColor()
-        c.contentView.backgroundColor = u.isLiked  ? .yellowColor() : .whiteColor()
+        c.textLabel?.backgroundColor = .clear
+        c.contentView.backgroundColor = u.isLiked  ? .yellow : .white
         return c
     }
 }
 
 extension UsersVC:UITableViewDelegate {
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let u = state.users![indexPath.row]
         if !u.isLiked {
             dispatch(LikeUser(u))
         } else {
             dispatch(TappedUser(user: u))
         }
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 

@@ -11,25 +11,25 @@ import Foundation
 protocol State { }
 
 protocol Action { }
-typealias ActionCreator = (dispatch:Dispatch) -> Void
+typealias ActionCreator = (_ dispatch: @escaping Dispatch) -> Void
 
 var store:Store!
 
 protocol Store {
-    func dispatch(action:Action)
-    func dispatch(actionCreator:ActionCreator)
+    func dispatch(_ action:Action)
+    func dispatch(_ actionCreator:ActionCreator)
     var state:State {get set}
     var reducer:Reducer {get set}
     var stateObservers:[StateObserver] { get }
-    func subscribe(observer:StateObserver)
+    func subscribe(_ observer:StateObserver)
 }
 
 protocol Reducer {
-    func handleAction(state:State, action:Action) -> State
+    func handleAction(_ state:State, action:Action) -> State
 }
 
 protocol StateObserver {
-    func newState(state:State)
+    func newState(_ state:State)
 }
 
 class DefaultStore:Store {
@@ -42,21 +42,21 @@ class DefaultStore:Store {
         reducer = aReducer
     }
     
-    func dispatch(action: Action) {
+    func dispatch(_ action: Action) {
         state = reducer.handleAction(state, action: action)
         pushStateToStateObserver()
     }
     
-    func dispatch(actionCreator:ActionCreator) {
-        actionCreator(dispatch: store.dispatch)
+    func dispatch(_ actionCreator:ActionCreator) {
+        actionCreator(store.dispatch)
     }
     
-    func subscribe(observer:StateObserver) {
+    func subscribe(_ observer:StateObserver) {
         stateObservers.append(observer)
         observer.newState(state)
     }
 
-    func unSubscribe(observer:StateObserver) {
+    func unSubscribe(_ observer:StateObserver) {
 //        if let index = stateObservers.indexOf(observer){
 //          stateObservers.removeAtIndex(index)
 //        }
@@ -77,15 +77,15 @@ import UIKit
 
 extension StateObserver {
     
-    func dispatch(action: Action) {
+    func dispatch(_ action: Action) {
         store.dispatch(action)
     }
     
-    func dispatch(actionCreator:ActionCreator) {
+    func dispatch(_ actionCreator:ActionCreator) {
         store.dispatch(actionCreator)
     }
     
-    func subscribe(observer:StateObserver) {
+    func subscribe(_ observer:StateObserver) {
         store.subscribe(observer)
     }
 }

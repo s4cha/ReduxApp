@@ -7,12 +7,13 @@
 //
 
 import ws
+import then
 
 struct GoApi:Api {
     
     let ws = WS("http://jsonplaceholder.typicode.com")
     
     func latestUsers() -> Promise<[User]> {
-        return ws.resourcesCall(url: "/users")
+        return ws.get("/users")
     }
 }

@@ -10,17 +10,17 @@ import UIKit
 
 class UsersView:UIView {
     
-    let tableView = UITableView(frame: UIScreen.mainScreen().bounds, style: .Plain)
+    let tableView = UITableView(frame: UIScreen.main.bounds, style: .plain)
     let button = UIButton()
     convenience init() {
-        self.init(frame:CGRectZero)
+        self.init(frame:CGRect.zero)
         
         addSubview(tableView)
         
-        backgroundColor = .whiteColor()
-        button.backgroundColor = .grayColor()
+        backgroundColor = .white
+        button.backgroundColor = .gray
         addSubview(button)
-        button.frame = CGRectMake(100, UIScreen.mainScreen().bounds.height-150, 300, 100)
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        button.frame = CGRect(x: 100, y: UIScreen.main.bounds.height-150, width: 300, height: 100)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
 }

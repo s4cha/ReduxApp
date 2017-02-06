@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		990B85061E4897A50028FD17 /* User+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990B85051E4897A50028FD17 /* User+JSON.swift */; };
 		997B01111C6259CE003C9302 /* ws.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 997B01101C6259CE003C9302 /* ws.framework */; };
 		997B01151C62684D003C9302 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997B01141C62684D003C9302 /* View.swift */; };
 		997B011A1C63595A003C9302 /* GoApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997B01191C63595A003C9302 /* GoApi.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		990B85051E4897A50028FD17 /* User+JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+JSON.swift"; sourceTree = "<group>"; };
 		997B010E1C6259C7003C9302 /* Stevia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Stevia.framework; path = Carthage/Build/iOS/Stevia.framework; sourceTree = "<group>"; };
 		997B01101C6259CE003C9302 /* ws.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ws.framework; path = Carthage/Build/iOS/ws.framework; sourceTree = "<group>"; };
 		997B01141C62684D003C9302 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			children = (
 				99A2BEE41C63AF390028E55B /* MyState.swift */,
 				99A2BEE91C63B0860028E55B /* User.swift */,
+				990B85051E4897A50028FD17 /* User+JSON.swift */,
 				99A2BEE71C63B0600028E55B /* Api.swift */,
 				99B985381C63B0F900A07E2F /* MainReducer.swift */,
 				99B985431C63B2AD00A07E2F /* Actions */,
@@ -165,6 +168,7 @@
 				TargetAttributes = {
 					9995DDA41C5BC685008D17F6 = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0820;
 					};
 				};
 			};
@@ -208,6 +212,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/ws.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Arrow.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/then.framework",
 			);
 			outputPaths = (
 			);
@@ -234,6 +239,7 @@
 				99E6BAA71C64A82B00702074 /* Navigation.swift in Sources */,
 				99E6BAA51C64A39900702074 /* UserVC.swift in Sources */,
 				9995DDBC1C5BD336008D17F6 /* Redux.swift in Sources */,
+				990B85061E4897A50028FD17 /* User+JSON.swift in Sources */,
 				99B985391C63B0F900A07E2F /* MainReducer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,8 +271,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -309,8 +317,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -329,6 +339,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -345,6 +356,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.s4cha.TestRedux.TestRedux;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -360,6 +372,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.s4cha.TestRedux.TestRedux;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

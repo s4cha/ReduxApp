@@ -9,25 +9,26 @@
 import Foundation
 
 enum LikeUserAction:Action {
-    case Success(user:User)
-    case Failed(user:User)
+    case success(user:User)
+    case failed(user:User)
 }
 
-func LikeUser(user:User) -> ActionCreator  {
+func LikeUser(_ user:User) -> ActionCreator  {
     return { dispatch in
         //Optimistic
-        dispatch(LikeUserAction.Success(user: user))
-        api.latestUsers().fails {
-            dispatch(LikeUserAction.Failed(user: user))
+        dispatch(LikeUserAction.success(user: user))
+        api.latestUsers().onError { _ in
+            dispatch(LikeUserAction.failed(user: user))
         }
     }
 }
 
-func likeUserReducer(var state:MyState, action:LikeUserAction) -> MyState {
+func likeUserReducer(_ state:MyState, action:LikeUserAction) -> MyState {
+    var state = state
     switch action {
-    case .Success(let aUser):
+    case .success(let aUser):
         return likeUser(state, aUser: aUser)
-    case .Failed(let aUser):
+    case .failed(let aUser):
         state.likingUserFailed = true
         state.users = state.users?.map({ user in
             var user = user
@@ -40,7 +41,8 @@ func likeUserReducer(var state:MyState, action:LikeUserAction) -> MyState {
     return state
 }
 
-func likeUser(var state:MyState, aUser:User) -> MyState {
+func likeUser(_ state:MyState, aUser:User) -> MyState {
+    var state = state
     state.users = state.users?.map({ user in
         var user = user
         if user.name == aUser.name {

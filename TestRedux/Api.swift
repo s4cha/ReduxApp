@@ -6,7 +6,7 @@
 //  Copyright © 2016 s4cha. All rights reserved.
 //
 
-import ws
+import then
 
 var api:Api!
 

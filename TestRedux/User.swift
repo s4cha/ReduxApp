@@ -13,13 +13,3 @@ struct User {
     var name = "Tom"
     var isLiked:Bool = false
 }
-
-
-// TODO should be in goapi but it crashed compiler :(
-import Arrow
-extension User:ArrowParsable {
-    init(json: JSON) {
-        identifier <-- json["id"]
-        name <-- json["name"]
-    }
-}

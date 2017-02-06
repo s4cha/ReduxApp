@@ -9,7 +9,7 @@
 import Foundation
 
 struct MainReducer:Reducer {
-    func handleAction(state:State, action:Action) -> State {
+    func handleAction(_ state:State, action:Action) -> State {
         let state:MyState = state as! MyState
         switch action {
         case let a as FetchUsersAction:

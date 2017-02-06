@@ -9,31 +9,32 @@
 import Foundation
 
 enum FetchUsersAction:Action {
-    case Loading
-    case Success(users:[User])
-    case Failed
+    case loading
+    case success(users:[User])
+    case failed
 }
 
 func FetchUsers() -> ActionCreator  {
     return { dispatch in
-        dispatch(FetchUsersAction.Loading)
+        dispatch(FetchUsersAction.loading)
         api.latestUsers().then { users in
-            dispatch(FetchUsersAction.Success(users: users))
-        }.fails {
-            dispatch(FetchUsersAction.Failed)
+            dispatch(FetchUsersAction.success(users: users))
+        }.onError { _ in
+            dispatch(FetchUsersAction.failed)
         }
     }
 }
 
-func fetchUsersReducer(var state:MyState, action:FetchUsersAction) -> MyState {
+func fetchUsersReducer(_ state:MyState, action:FetchUsersAction) -> MyState {
+    var state = state
     switch action {
-    case .Loading:
+    case .loading:
         state.users = nil
         state.failedLoadingUsers = false
-    case .Success(let users):
+    case .success(let users):
         state.users = users
         state.failedLoadingUsers = false
-    case .Failed:
+    case .failed:
         state.failedLoadingUsers = true
     }
     return state
